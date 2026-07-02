@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "font-title";
+    src: url(../assets/fonts/oswald.ttf);
+}
+@font-face {
+    font-family: "font-text";
+    src: url(../assets/fonts/inter.ttf);
+}
+
+$font-title: "font-title", serif;
+$font-text: "font-text", sans-serif;
+
+$main-background-color: #0f172a;
+$card-color: #1e293b;
+$card-hover-color: #334155;
+$button-color: #dc2626;
+$button-hover-color: #b91c1c;
+$main-text-color: #f8fafc;
+$secondary-text-color: #94a3b8;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $main-background-color;
+    color: $main-text-color;
+    font-family: $font-text;
+    margin: 30px 20px 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: $main-text-color;
+    text-decoration: none;
+}
