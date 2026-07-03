@@ -18,7 +18,7 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <h1>React Movies</h1>
+            <h1>App Movies</h1>
         </header>
     );
 };

@@ -1,0 +1,55 @@
+.card {
+    background: $card-color;
+    padding: 20px 10px 10px;
+
+    img {
+        height: 400px;
+        width: 100%;
+        padding: 10px 20px 5px;
+        border-radius: 50px;
+    }
+
+    &_date {
+        color: $secondary-text-color;
+        letter-spacing: 1px;
+    }
+
+    &_rating {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+
+        &--score {
+            font-weight: bold;
+        }
+
+        .fa-solid {
+            color: #f5c518;
+            text-shadow: 0 0 8px rgba(245, 197, 24, 0.3);
+        }
+    }
+
+    &_genders {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        &--gender {
+            background: $card-hover-color;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    }
+
+    &_synopsis {
+        color: $secondary-text-color;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
