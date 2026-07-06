@@ -25,6 +25,10 @@
         border: none;
         transition: 0.3s ease;
 
+        @media (max-width: $media-screen-mobile) {
+            margin-top: 100px;
+        }
+
         &:focus {
             border: 2px solid $button-hover-color;
         }
@@ -44,8 +48,7 @@
     }
 
     .topflop {
-        margin-top: 10px;
-        padding: 3px;
+        margin-top: 15px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         font-size: 0.7rem;
@@ -58,6 +61,16 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
+            padding: 5px 0;
+            margin: 0;
+            min-width: auto;
+        }
+
+        &_top {
+            border-radius: 10px 0 0 10px;
+        }
+        &_flop {
+            border-radius: 0 10px 10px 0;
         }
 
         .fa-solid {

@@ -1,9 +1,11 @@
 .card {
+    position: relative;
     background: $card-color;
-    padding: 20px 10px 10px;
+    padding: 20px 25px 10px;
+    border-radius: 50px;
 
     img {
-        height: 400px;
+        height: 330px;
         width: 100%;
         padding: 10px 20px 5px;
         border-radius: 50px;
@@ -18,7 +20,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        margin: 10px 0;
+        margin: 10px 0 15px;
 
         &--score {
             font-weight: bold;
@@ -45,11 +47,50 @@
     }
 
     &_synopsis {
+        &--text,
+        &--button {
+            color: $secondary-text-color;
+            line-height: 1.5;
+        }
+        &--text {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 3px;
+
+            &.showAll {
+                display: block;
+            }
+        }
+
+        &--button {
+            background: none;
+            border: none;
+            font-family: $font-text;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &_favorite {
+        position: absolute;
+        bottom: 5px;
+        right: 25px;
+        font-size: 1.4rem;
+        border: none;
+        background: none;
         color: $secondary-text-color;
-        line-height: 1.5;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        cursor: pointer;
+        transition: color 1s ease;
+
+        &:hover {
+            color: $button-hover-color;
+        }
     }
 }

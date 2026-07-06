@@ -1,17 +1,23 @@
-const Search = () => {
+const Search = ({ inputValue, setInputValue, setSearchValue, setFilter }) => {
     return (
         <section className='search'>
-            <input type='text' id='search-title' placeholder="Entrez le titre d'un film" />
-            <button>Rechercher</button>
+            <input
+                type='text'
+                id='search-title'
+                placeholder="Entrez le titre d'un film"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button onClick={() => setSearchValue(inputValue)}>Rechercher</button>
             <div className='topflop'>
-                <div className='topflop_top'>
+                <button onClick={() => setFilter("top")} className='topflop_top'>
                     <p>Top</p>
                     <i className='fa-solid fa-arrow-up'></i>
-                </div>
-                <div className='topflop_flop'>
+                </button>
+                <button onClick={() => setFilter("flop")} className='topflop_flop'>
                     <p>Flop</p>
                     <i className='fa-solid fa-arrow-down'></i>
-                </div>
+                </button>
             </div>
         </section>
     );

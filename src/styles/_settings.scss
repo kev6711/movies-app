@@ -18,6 +18,10 @@ $button-hover-color: #b91c1c;
 $main-text-color: #f8fafc;
 $secondary-text-color: #94a3b8;
 
+$media-screen-tablet: 1200px;
+$media-screen-mobile: 900px;
+$media-screen-small: 580px;
+
 * {
     margin: 0;
     padding: 0;
@@ -29,6 +33,10 @@ body {
     color: $main-text-color;
     font-family: $font-text;
     margin: 30px 20px 0;
+
+    @media (max-width: $media-screen-mobile) {
+        margin: 0;
+    }
 }
 
 li {
