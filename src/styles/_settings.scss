@@ -19,10 +19,26 @@ $button-cancel-color: #b91c1c54;
 $main-text-color: #f8fafc;
 $secondary-text-color: #94a3b8;
 
-$media-screen-desktop: 1400px;
+$media-screen-desktop: 1440px;
 $media-screen-tablet: 1200px;
 $media-screen-mobile: 900px;
 $media-screen-small: 580px;
+
+@mixin center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin button {
+    cursor: pointer;
+    border: none;
+}
 
 * {
     margin: 0;

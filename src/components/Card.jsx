@@ -1,14 +1,38 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 
-const Card = ({ movie }) => {
+const Card = ({ movie, favoritesMovies, setFavoritesMovies }) => {
     const [genders, setGenders] = useState([]);
     const [showMore, setShowMore] = useState(false);
     const [showAllText, setShowAllText] = useState(false);
     const synopsisRef = useRef(null);
+    const isFavorite = favoritesMovies?.some((favorite) => favorite.id === movie.id);
 
     const handleShowMoreClick = () => {
         setShowAllText((prev) => !prev);
+    };
+
+    const handleAddFavorites = () => {
+        const favoritesMovies = JSON.parse(localStorage.getItem("favoritesMovies")) || [];
+
+        const movieAlreadyExist = favoritesMovies.some((favorite) => favorite.id === movie.id);
+
+        if (!movieAlreadyExist) {
+            const updatedFavorites = [...favoritesMovies, movie];
+
+            localStorage.setItem("favoritesMovies", JSON.stringify(updatedFavorites));
+
+            setFavoritesMovies(updatedFavorites);
+        }
+    };
+
+    const handleRemoveFavorites = () => {
+        const favoritesMovies = JSON.parse(localStorage.getItem("favoritesMovies")) || [];
+        const updatedFavorites = favoritesMovies.filter((favorite) => favorite.id !== movie.id);
+
+        localStorage.setItem("favoritesMovies", JSON.stringify(updatedFavorites));
+
+        setFavoritesMovies(updatedFavorites);
     };
 
     useEffect(() => {
@@ -58,8 +82,11 @@ const Card = ({ movie }) => {
                     </button>
                 )}
             </div>
-            <button className='card_favorite'>
+            <button onClick={handleAddFavorites} className={isFavorite ? "card_favorite isFavorite" : "card_favorite"}>
                 <i className='fa-solid fa-heart'></i>
+            </button>
+            <button onClick={handleRemoveFavorites} className='card_favorite--cancel'>
+                Supprimer de la liste
             </button>
         </article>
     );

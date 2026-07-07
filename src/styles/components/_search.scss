@@ -1,8 +1,5 @@
 .search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include center-column;
 
     input,
     button,
@@ -37,9 +34,8 @@
     button {
         color: $main-text-color;
         background-color: $card-color;
-        border: none;
+        @include button;
         border-radius: 0 0 10px 10px;
-        cursor: pointer;
         transition: 0.3s ease;
 
         &:hover {
@@ -57,9 +53,7 @@
 
         &_top,
         &_flop {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include center-row;
             gap: 10px;
             padding: 5px 0;
             margin: 0;
@@ -86,9 +80,7 @@
 
         &_search,
         &_filter {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include center-row;
             gap: 10px;
             border-radius: 50px;
             font-size: 0.8rem;

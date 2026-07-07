@@ -5,7 +5,7 @@
     border-radius: 50px;
 
     img {
-        height: 500px;
+        height: 450px;
         width: 100%;
         padding: 10px 20px 5px;
         border-radius: 50px;
@@ -74,10 +74,9 @@
 
         &--button {
             background: none;
-            border: none;
+            @include button;
             font-family: $font-text;
             font-weight: bold;
-            cursor: pointer;
             transition: 0.3s ease;
 
             &:hover {
@@ -91,14 +90,22 @@
         bottom: 5px;
         right: 25px;
         font-size: 1.4rem;
-        border: none;
+        @include button;
         background: none;
         color: $secondary-text-color;
-        cursor: pointer;
-        transition: color 1s ease;
+        transition: all 1s ease;
 
         &:hover {
             color: $button-hover-color;
+            transform: scale(1.05);
+        }
+
+        &.isFavorite {
+            color: $button-color;
+        }
+
+        &--cancel {
+            display: none;
         }
     }
 }

@@ -11,6 +11,7 @@ const Home = () => {
     const [filter, setFilter] = useState("");
     const [searchIsOpen, setSearchIsOpen] = useState(false);
     const [filterIsOpen, setFilterIsOpen] = useState(false);
+    const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(localStorage.getItem("favoritesMovies")) || []);
 
     useEffect(() => {
         const url =
@@ -44,7 +45,14 @@ const Home = () => {
                           ? [...data].sort((a, b) => a.vote_average - b.vote_average)
                           : data
                     ).map((movie) => {
-                        return <Card key={movie.id} movie={movie} />;
+                        return (
+                            <Card
+                                key={movie.id}
+                                movie={movie}
+                                favoritesMovies={favoritesMovies}
+                                setFavoritesMovies={setFavoritesMovies}
+                            />
+                        );
                     })}
                 </div>
             </main>
