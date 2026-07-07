@@ -9,6 +9,8 @@ const Home = () => {
     const [inputValue, setInputValue] = useState("");
     const [searchValue, setSearchValue] = useState("");
     const [filter, setFilter] = useState("");
+    const [searchIsOpen, setSearchIsOpen] = useState(false);
+    const [filterIsOpen, setFilterIsOpen] = useState(false);
 
     useEffect(() => {
         const url =
@@ -30,6 +32,10 @@ const Home = () => {
                     setInputValue={setInputValue}
                     setSearchValue={setSearchValue}
                     setFilter={setFilter}
+                    searchIsOpen={searchIsOpen}
+                    setSearchIsOpen={setSearchIsOpen}
+                    setFilterIsOpen={setFilterIsOpen}
+                    filterIsOpen={filterIsOpen}
                 />
                 <div className='cards'>
                     {(filter === "top"

@@ -77,4 +77,26 @@
             font-size: 0.6rem;
         }
     }
+
+    .cancel-buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &_search,
+        &_filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            background: $button-cancel-color;
+
+            .fa-circle-xmark {
+                margin-top: 3px;
+            }
+        }
+    }
 }
