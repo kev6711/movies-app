@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Search from "../components/Search";
 import Card from "../components/Card";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -13,16 +14,18 @@ const Home = () => {
     const [filterIsOpen, setFilterIsOpen] = useState(false);
     const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(localStorage.getItem("favoritesMovies")) || []);
 
+    const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+
     useEffect(() => {
         const url =
             searchValue === ""
-                ? "https://api.themoviedb.org/3/movie/now_playing?api_key=b506326af662e1dfbbf6b2f2d3972c7e&language=fr-FR&page=1"
-                : `https://api.themoviedb.org/3/search/movie?api_key=b506326af662e1dfbbf6b2f2d3972c7e&language=fr-FR&query=${searchValue}`;
+                ? `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=fr-FR&page=1`
+                : `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=fr-FR&query=${searchValue}`;
 
         axios.get(url).then((res) => {
             setData(res.data.results);
         });
-    }, [searchValue]);
+    }, [searchValue, apiKey]);
 
     return (
         <>
@@ -56,6 +59,7 @@ const Home = () => {
                     })}
                 </div>
             </main>
+            <Footer />
         </>
     );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Favorites = () => {
     const [favoritesMovies, setFavoritesMovies] = useState(JSON.parse(localStorage.getItem("favoritesMovies")) || []);
@@ -18,6 +19,7 @@ const Favorites = () => {
                     })}
                 </div>
             </main>
+            <Footer />
         </>
     );
 };

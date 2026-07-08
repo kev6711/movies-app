@@ -1,0 +1,11 @@
+footer {
+    height: 50px;
+    margin-top: 50px;
+    @include center-row;
+    background: #1b1b1b;
+
+    p {
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+    }
+}

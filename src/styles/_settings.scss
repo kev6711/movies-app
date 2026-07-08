@@ -46,11 +46,17 @@ $media-screen-small: 580px;
     box-sizing: border-box;
 }
 
+#root,
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 body {
     background: $main-background-color;
     color: $main-text-color;
     font-family: $font-text;
-    margin: 30px 20px 0;
 
     @media (max-width: $media-screen-mobile) {
         margin: 0;
